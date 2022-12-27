@@ -1,0 +1,18 @@
+@import "styles";
+
+.input-material {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  padding: 12px 8px;
+  color: $black;
+  background: $white;
+  border: 1px solid $silver;
+  border-radius: 8px;
+  transition: 0.2s ease-out;
+
+  &--valid,
+  &:focus {
+    border-color: $salmon;
+  }
+}

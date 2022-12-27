@@ -10,4 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class ButtonComponent {
   @Input() text: string = '';
+  @Input() isLittle: boolean = false;
+  @Input() isDisable: boolean = false;
 }

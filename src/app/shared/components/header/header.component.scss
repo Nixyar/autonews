@@ -18,7 +18,27 @@
   }
 
   @include query($xs) {
-    flex-direction: column;
     height: auto;
   }
+}
+
+.header__modal {
+  position: relative;
+  text-align: center;
+
+  &-title {
+    margin-bottom: 12px;
+  }
+
+  &-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+  }
+}
+
+.input-block {
+  margin-bottom: 14px;
+  text-align: left;
 }

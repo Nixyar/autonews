@@ -1,4 +1,17 @@
 <header class="header max-container">
   <img src="./assets/images/logo.png" alt="Логотип" class="header__logo">
-  <app-button [text]="'Добавить новость'"></app-button>
+  <app-button [text]="'Добавить новость'" (click)="openCreateNewsModal()" *ngIf="!globalService.less767Checked()"></app-button>
+  <app-button [text]="'+'" [isLittle]="true" (click)="openCreateNewsModal()" *ngIf="globalService.less767Checked()"></app-button>
 </header>
+<app-modal-window [isShow]="isOpenModal">
+  <div class="header__modal">
+    <h1 class="header__modal-title h2--header">Создать новость</h1>
+    <div *ngFor="let formCreateNewsInput of createNewsInputs" class="input-block">
+      <p class="p2">{{formCreateNewsInput.label}}</p>
+      <app-input [form]="createNewsForm" [inputName]="formCreateNewsInput.inputName" [type]="formCreateNewsInput?.type || 'text'"
+                 [placeholderName]="formCreateNewsInput.label" (selectedInputFiles)="saveFileFormat($event)"></app-input>
+    </div>
+    <app-button [text]="'Сохранить'" [isDisable]="checkValidForm()" (click)="!checkValidForm() ? saveNews() : null"></app-button>
+  </div>
+  <span (click)="openCreateNewsModal()" class="header__modal-icon p2--strong">X</span>
+</app-modal-window>

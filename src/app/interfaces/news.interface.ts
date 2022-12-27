@@ -6,10 +6,10 @@ export interface INewsListResponse {
 export interface INewsList {
   categoryType: string;
   description: string;
-  fullUrl: string;
-  id: number;
-  publishedDate: string;
+  fullUrl: string | null;
+  id: number | null;
+  publishedDate: string | Date;
   title: string;
   titleImageUrl: string;
-  url: string;
+  url: string | null;
 }

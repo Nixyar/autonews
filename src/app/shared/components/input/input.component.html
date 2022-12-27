@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+  <input class="input-material p1--medium"
+         [class.input-material--valid]="inputValid()"
+         [attr.type]="type"
+         [formControlName]="inputName"
+         [attr.name]="inputName"
+         [tabIndex]="tabIndex"
+         [value]="inputValue"
+         [placeholder]="placeholderName"
+         (focus)="focusInputIn()"
+         accept="image/png, image/gif, image/jpeg"
+         (blur)="focusInputOut()" (change)="fileChange($event)">
+</form>

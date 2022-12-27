@@ -11,4 +11,19 @@
   &:hover {
     opacity: 0.8;
   }
+
+  &--little {
+    height: auto;
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 100%;
+  }
+
+  &--disable {
+    background-color: $grey;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
