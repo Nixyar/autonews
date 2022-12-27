@@ -9,4 +9,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Автодеплой
 
 Для приложения настроен автодеплой на нетлифай через пуш в master-ветку
-<br>Ссылка: https://sweet-trifle-528ae3.netlify.app
+<br>Ссылка: https://fabulous-pastelito-3edcfc.netlify.app
