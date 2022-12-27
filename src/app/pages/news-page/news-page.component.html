@@ -1,0 +1,30 @@
+<main class="news-page__container max-container">
+  <ng-container *ngIf="newsLists.length">
+    <article class="news-page__article--first">
+      <img src="{{newsLists[0]?.titleImageUrl}}" alt="Картинка новостей" class="news-page__article-image">
+      <div class="news-page__article-info">
+        <h1 class="news-page__article-title h2--header">{{newsLists[0]?.title}}</h1>
+        <p class="news-page__article-description h4">{{newsLists[0]?.description}}</p>
+        <p class="news-page__article-published p1--strong">{{newsLists[0]?.publishedDate | date: 'dd.MM.yyyy'}}</p>
+        <app-button [text]="'Читать новость'"></app-button>
+      </div>
+    </article>
+    <h2 class="news-page__article-text h2--header">Предыдущие новости</h2>
+    <section class="news-page__other-news">
+      <article class="news-page__article" *ngFor="let newsList of newsLists | slice : 1">
+        <div>
+          <img src="{{newsList.titleImageUrl}}" alt="Картинка новостей" class="news-page__article-image">
+          <h1 class="news-page__article-title p1--strong">{{newsList?.title}}</h1>
+          <p class="news-page__article-description p2">{{newsList?.description}}</p>
+        </div>
+        <div class="news-page__article--bottom">
+          <p class="news-page__article-category caps">{{newsList?.categoryType}}</p>
+          <p class="news-page__article-published-date caps">{{newsList?.publishedDate | date: 'dd.MM.yyyy'}}</p>
+        </div>
+      </article>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="!newsLists.length">
+    <p class="news-page__article-text h3">Новости отстутствуют. Но мы их с нетерпением ждем!</p>
+  </ng-container>
+</main>

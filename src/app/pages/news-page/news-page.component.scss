@@ -1,0 +1,142 @@
+@import "styles";
+
+.news-page__container {
+  padding: 20px 60px;
+
+  @include query($xs) {
+    padding: 10px 20px;
+  }
+}
+
+.news-page__article--first {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+
+  .news-page__article-info {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 30%;
+    color: $white;
+
+    @include query($sm) {
+      top: 10%;
+    }
+
+    @include query($xs) {
+      top: 20%;
+      left: 5%;
+      width: 90%;
+    }
+  }
+
+  .news-page__article-image {
+    height: calc(100vh - 130px);
+    width: 100%;
+    border-radius: 12px;
+    filter: brightness(30%);
+
+    @include query($xs) {
+      height: calc(100vh - 169px);
+    }
+  }
+
+  .news-page__article-title {
+    margin-bottom: 11%;
+
+    @include query($xs) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  .news-page__article-description {
+    margin-bottom: 5%;
+
+    @include query($xs) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  .news-page__article-published {
+    margin-bottom: 25%;
+  }
+}
+
+.news-page__article-text {
+  color: $primary-grey;
+  width: 80%;
+  margin: auto auto 24px auto;
+
+  @include query($sm) {
+    width: 100%;
+  }
+
+  @include query($xs) {
+    width: 95%;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.news-page__other-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-items: stretch;
+  align-items: stretch;
+  width: 80%;
+  margin: auto;
+  contain: none;
+
+  @include query($sm) {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include query($xs) {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}
+
+.news-page__article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid transparent;
+  transition: 0.2s ease-out;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-grey;
+  }
+
+  &-image {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  &-category {
+    padding: 4px;
+    color: $royal-blue;
+    background-color: $light-sky-blue;
+    border-radius: 4px;
+  }
+
+  &-published-date {
+    text-align: end;
+  }
+
+  &--bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+  }
+}

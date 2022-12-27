@@ -3,3 +3,8 @@
 @import "assets/global/mixins.scss";
 @import "assets/global/fonts.scss";
 @import "assets/global/colors.scss";
+
+.max-container {
+  max-width: 1440px;
+  margin: auto;
+}

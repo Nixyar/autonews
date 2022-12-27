@@ -36,8 +36,8 @@
       "dom"
     ],
     "paths": {
-      "@services/*": ["src/app/services/*"],
       "@components/*": ["src/app/shared/components/*"],
+      "@interfaces/*": ["src/app/interfaces/*"],
       "@api/*": ["src/app/api/*"],
     }
   },
