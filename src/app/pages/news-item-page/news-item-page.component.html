@@ -1,7 +1,7 @@
 <section class="news-item-page max-container p1">
   <div class="news-item-page__head">
     <button routerLink="/" type="button" class="news-item-page__head-button-back p1">&#8592; Вернуться к новостям</button>
-    <div class="news-item-page__head">
+    <div class="news-item-page__head-info">
       <p class="news-item-page__published-date p1">{{newsInfo?.publishedDate | date : 'dd.MM.yyyy'}}</p>
       <span class="news-item-page__head-category">{{newsInfo?.categoryType}}</span>
     </div>
