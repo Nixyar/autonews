@@ -1,0 +1,57 @@
+@import "styles";
+
+.news-item-page {
+  padding: 20px 60px;
+
+  @include query($xs) {
+    padding: 10px 20px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  &__published-date {
+    margin-right: 12px;
+  }
+}
+
+.news-item-page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-category {
+    padding: 4px;
+    color: $royal-blue;
+    background-color: $light-sky-blue;
+    border-radius: 4px;
+  }
+
+  &-button-back {
+    margin-bottom: 12px;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+}
+
+.news-item-page__footer {
+  text-align: center;
+}
+
+.news-item-page__text {
+  ::ng-deep {
+    p {
+      margin-bottom: 24px;
+    }
+    img {
+      width: 100%;
+      margin-bottom: 12px;
+      border-radius: 12px;
+    }
+  }
+}

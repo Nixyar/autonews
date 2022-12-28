@@ -13,3 +13,13 @@ export interface INewsList {
   titleImageUrl: string;
   url: string | null;
 }
+
+export interface INewsItem extends INewsList {
+  text: string;
+}
+
+export interface IFormDataSaveNews {
+  title: string;
+  description: string;
+  titleImageUrl: string;
+}

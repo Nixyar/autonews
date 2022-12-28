@@ -4,8 +4,10 @@ import {ButtonComponent} from "@components/button/button.component";
 import {ModalWindowComponent} from "@components/modal-window/modal-window.component";
 import {InputComponent} from "@components/input/input.component";
 import {FormControl, FormGroup} from "@angular/forms";
-import {INewsList} from "@interfaces/news.interface";
-import {GlobalService} from "../../../services/global.service";
+import {IFormDataSaveNews, INewsList} from "@interfaces/news.interface";
+import {GlobalService} from "@services/global.service";
+import {SaveNewsModel} from "@models/save-news.model";
+import {Router} from "@angular/router";
 
 export interface INewsInput {
   label: string;
@@ -46,7 +48,10 @@ export class HeaderComponent {
     photo: new FormControl<string | null>(null)
   });
 
-  constructor(public globalService: GlobalService) {
+  constructor(private router: Router, public globalService: GlobalService) {}
+
+  checkViewButton(): boolean {
+    return this.router.url === '/';
   }
 
   checkValidForm(): boolean {
@@ -74,16 +79,12 @@ export class HeaderComponent {
   }
 
   saveNews(): void {
-    const news: INewsList = {
-      categoryType: 'Локальная',
-      description: this.createNewsForm.get('description')?.value || '',
-      fullUrl: null,
-      id: null,
-      publishedDate: new Date(),
-      title: this.createNewsForm.get('title')?.value || '',
-      titleImageUrl: this.fileSelect || '',
-      url: null,
+    const formData: IFormDataSaveNews = {
+      title: this.createNewsForm.get('description')?.value || '',
+      description: this.createNewsForm.get('title')?.value || '',
+      titleImageUrl: this.fileSelect
     };
+    const news: INewsList = new SaveNewsModel(formData);
     let newsArr = <INewsList[] | null>JSON.parse(<string>localStorage.getItem('createdNews'));
     if (newsArr?.length) {
       newsArr.unshift(news);

@@ -1,1 +1,17 @@
-<p>news-item-page works!</p>
+<section class="news-item-page max-container p1">
+  <div class="news-item-page__head">
+    <button routerLink="/" type="button" class="news-item-page__head-button-back p1">&#8592; Вернуться к новостям</button>
+    <div class="news-item-page__head">
+      <p class="news-item-page__published-date p1">{{newsInfo?.publishedDate | date : 'dd.MM.yyyy'}}</p>
+      <span class="news-item-page__head-category">{{newsInfo?.categoryType}}</span>
+    </div>
+  </div>
+  <h1 class="news-item-page__title h2--header">{{newsInfo?.title}}</h1>
+<!--  Убрать уязвимость от xss-->
+  <p class="news-item-page__text" [innerHTML]="newsInfo?.text"></p>
+  <div class="news-item-page__footer">
+    <a href="{{newsInfo?.fullUrl}}" target="_blank" class="news-item-page__link">
+      <app-button [text]="'Полная новость'"></app-button>
+    </a>
+  </div>
+</section>

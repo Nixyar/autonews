@@ -6,13 +6,14 @@
         <h1 class="news-page__article-title h2--header">{{newsLists[0]?.title}}</h1>
         <p class="news-page__article-description h4">{{newsLists[0]?.description}}</p>
         <p class="news-page__article-published p1--strong">{{newsLists[0]?.publishedDate | date: 'dd.MM.yyyy'}}</p>
-        <app-button [text]="'Читать новость'" *ngIf="newsLists[0]?.categoryType !== 'Локальная'"></app-button>
+        <app-button [text]="'Читать новость'" *ngIf="newsLists[0]?.categoryType !== 'Локальная'" [routerLink]="['', newsLists[0]?.url]"></app-button>
       </div>
     </article>
     <h2 class="news-page__article-text h2--header">Предыдущие новости</h2>
     <section class="news-page__other-news">
       <article class="news-page__article"
                [ngStyle]="newsList?.categoryType === 'Локальная' ? {'cursor': 'default'} : {'cursor': 'pointer'}"
+               [routerLink]="['', newsList.url]"
                *ngFor="let newsList of newsLists | slice : 1">
         <div>
           <img src="{{newsList.titleImageUrl}}" alt="Картинка новостей" class="news-page__article-image">

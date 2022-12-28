@@ -1,9 +1,9 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {NewsApi} from "@api/news.api";
-import {distinctUntilChanged, take} from "rxjs";
+import {distinctUntilChanged, Subscription, take} from "rxjs";
 import {INewsList, INewsListResponse} from "@interfaces/news.interface";
 import {HttpErrorResponse} from "@angular/common/http";
-import {GlobalService} from "../../services/global.service";
+import {GlobalService} from "@services/global.service";
 
 @Component({
   selector: 'app-news-page',
@@ -11,6 +11,7 @@ import {GlobalService} from "../../services/global.service";
   styleUrls: ['./news-page.component.scss']
 })
 export class NewsPageComponent implements OnInit, OnDestroy {
+  newsSub$: Subscription = new Subscription();
   newsLists: INewsList[] | [] = [];
   newsCount: number = 1;
 
@@ -34,13 +35,13 @@ export class NewsPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getNews();
-    this.globalService.newsLists$.pipe(distinctUntilChanged()).subscribe((news: INewsList[] | []) => {
+    this.newsSub$ = this.globalService.newsLists$.pipe(distinctUntilChanged()).subscribe((news: INewsList[] | []) => {
       this.newsLists = news;
     });
   }
 
   ngOnDestroy() {
-    this.globalService.newsLists$.unsubscribe();
+    this.newsSub$.unsubscribe();
   }
 
   getNews() {
